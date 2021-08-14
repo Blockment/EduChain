@@ -1,0 +1,139 @@
+/*
+$primary: #4C956C;
+$secondary: #2C6E49;
+$content-color: wheat;
+$text-color: #000000;
+$nav-color: white;
+$footer-color:white;
+$title-color: whitesmoke;
+*/
+article {
+  margin: 5% 8%;
+  background-color: lightgray;
+  padding: 3% 5% 5% 7.2%;
+  opacity: 86%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+article input {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  width: 100%;
+  padding: 2%;
+  border-radius: 0.25em;
+  border-style: none;
+  font-family: "B Mitra", sans-serif;
+}
+article input[type=checkbox] {
+  display: inline;
+}
+article button {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  width: 100%;
+  padding: 2%;
+  border-radius: 0.25em;
+  border-style: none;
+  font-family: "B Mitra", sans-serif;
+}
+article .authenticate-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-bottom: -6.5%;
+}
+article .authenticate-button .submit-button {
+  padding: 2.5%;
+  border-radius: 999rem;
+  background-color: purple;
+  font-size: large;
+  opacity: 86%;
+  color: white;
+  transition: all 0.25s;
+  align-self: center;
+}
+article .authenticate-button .submit-button:hover {
+  opacity: 80%;
+}
+article .header h1 {
+  font-size: 2.5rem;
+}
+article .header h6 {
+  font-size: 1.5rem;
+}
+article h6 {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  gap: 2%;
+}
+article h6 a {
+  color: blue;
+  text-decoration: none;
+}
+article h6 a:hover {
+  cursor: pointer;
+}
+
+.checkbox-with-label {
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (min-width: 420px) {
+  article .header h1 {
+    font-size: 4rem;
+  }
+  article .header h6 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 600px) {
+  article {
+    margin: 5% 20%;
+  }
+  article .authenticate-button .submit-button {
+    font-size: x-large;
+  }
+  article input {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  article button {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  article header h1 {
+    font-size: 4rem;
+  }
+  article header h6 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1023px) {
+  article {
+    margin: 5% 30%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: lightgray;
+  }
+  article .authenticate-button .submit-button {
+    background-color: purple;
+  }
+  article h6 a {
+    color: blue;
+  }
+}
+
+/*# sourceMappingURL=authentication.css.map */

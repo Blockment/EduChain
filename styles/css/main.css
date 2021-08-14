@@ -1,0 +1,398 @@
+/*
+$primary: #4C956C;
+$secondary: #2C6E49;
+$content-color: wheat;
+$text-color: #000000;
+$nav-color: white;
+$footer-color:white;
+$title-color: whitesmoke;
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "B Mitra", sans-serif;
+}
+
+body > header {
+  position: -webkit-sticky;
+  position: sticky;
+  opacity: 95%;
+  top: 0;
+  background-color: purple;
+}
+
+#main-selected-tab, #selected-tab {
+  color: blue;
+}
+#main-selected-tab:hover, #selected-tab:hover {
+  color: lightgray;
+}
+
+.more-buttons ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  list-style: none;
+}
+.more-buttons ul li {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  transition: all 0.35s;
+  padding: 0.85rem;
+  border-radius: 999rem;
+}
+.more-buttons ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: medium;
+}
+.more-buttons ul li:hover {
+  color: lightgray;
+  background-color: blue;
+}
+
+.hidden .hidden-text {
+  color: white;
+}
+.hidden .hidden-text .down-arrow {
+  font-size: 0.65em;
+}
+.hidden ul {
+  display: inline-block;
+  position: absolute;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  background-color: purple;
+  word-wrap: normal;
+}
+body > header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo img {
+  width: 20%;
+  margin-left: 1.5rem;
+  content: url("../../images/musix-light.png");
+}
+.logo h1 {
+  color: blue;
+  font-size: x-large;
+}
+
+ul .nav-link-item {
+  display: none;
+}
+ul #hidden {
+  display: block;
+}
+ul #hidden ul {
+  display: none;
+}
+ul #hidden:hover ul {
+  display: block;
+}
+
+main {
+  z-index: 1;
+}
+
+header {
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+}
+header a {
+  text-decoration: none;
+}
+header .site-title {
+  color: gray;
+  font-size: xx-large;
+}
+header ul {
+  display: flex;
+  flex-direction: row;
+}
+header ul li {
+  list-style: none;
+  transition: all 0.35s;
+  padding: 0.85rem;
+  border-radius: 999rem;
+  font-size: large;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+header ul li.primary-button {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: blue;
+}
+header ul li.primary-button a {
+  padding: 4%;
+}
+header ul li.primary-button > a:hover {
+  opacity: 60%;
+}
+header ul li a {
+  color: white;
+  text-decoration: none;
+}
+header ul li:hover {
+  color: lightgray;
+  background-color: blue;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "B Mitra", sans-serif;
+  transition: all 0.5s;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 1%;
+  background-color: black;
+  opacity: 50%;
+  color: white;
+  font-size: medium;
+}
+
+.login-link {
+  margin-right: 0;
+}
+
+@media (min-width: 840px) {
+  .primary-button {
+    display: flex;
+  }
+
+  .more-buttons {
+    display: none;
+  }
+
+  ul .nav-link-item {
+    display: block;
+  }
+  ul #hidden {
+    display: none;
+  }
+  ul #hidden ul {
+    display: none;
+  }
+  ul #hidden:hover ul {
+    display: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body > header {
+    background-color: purple;
+  }
+
+  #main-selected-tab, #selected-tab {
+    color: blue;
+  }
+  #main-selected-tab:hover, #selected-tab:hover {
+    color: lightgray;
+  }
+
+  .more-buttons ul li a {
+    color: white;
+  }
+  .more-buttons ul li:hover {
+    color: lightgray;
+    background-color: blue;
+  }
+
+  .hidden .hidden-text {
+    color: white;
+  }
+
+  body {
+    color: #000000;
+    background-color: purple;
+  }
+
+  .logo img {
+    content: url("../../images/musix-dark.png");
+  }
+  .logo h1 {
+    color: blue;
+  }
+
+  header .site-title {
+    color: #000000;
+  }
+  header ul li.primary-button {
+    background-color: blue;
+  }
+  header ul li a {
+    color: white;
+  }
+  header ul li:hover {
+    color: lightgray;
+    background-color: blue;
+  }
+
+  footer {
+    color: white;
+  }
+}
+body {
+  text-align: center;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  top: 50%;
+  animation: loader 2s infinite ease;
+  margin-top: 5%;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+  left: 2%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: purple;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: purple;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px purple;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+.slider.round {
+  border-radius: 23px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=main.css.map */

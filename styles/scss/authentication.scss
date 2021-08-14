@@ -1,0 +1,165 @@
+@import "colors.scss";
+
+@mixin margin-top-and-bottom($n: 4%) {
+  margin-top: $n;
+  margin-bottom: $n;
+}
+
+article {
+  margin: 5% 8%;
+  background-color: $content-color;
+  padding: 3% 5% 5% 7.2%;
+  opacity: 86%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  input {
+    @include margin-top-and-bottom(4%);
+    width: 100%;
+    padding: 2%;
+    border-radius: 0.25em;
+    border-style: none;
+    font-family: "B Mitra", sans-serif;
+
+    &[type="checkbox"] {
+      display: inline;
+    }
+  }
+
+  button {
+    @include margin-top-and-bottom(4%);
+    width: 100%;
+    padding: 2%;
+    border-radius: 0.25em;
+    border-style: none;
+    font-family: "B Mitra", sans-serif;
+  }
+
+  .authenticate-button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: -6.5%;
+
+    .submit-button {
+      padding: 2.5%;
+      border-radius: 999rem;
+      background-color: $primary;
+      font-size: large;
+      opacity: 86%;
+      color: white;
+      transition: all 0.25s;
+      align-self: center;
+
+      &:hover {
+        opacity: 80%;
+      }
+    }
+  }
+
+  .header {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h6 {
+      font-size: 1.5rem;
+    }
+  }
+
+  h6 {
+    @include margin-top-and-bottom(4%);
+    display: flex;
+    gap: 2%;
+
+    a {
+      color: $secondary;
+      text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.checkbox-with-label {
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (min-width: 420px) {
+  article {
+    .header {
+      h1 {
+        font-size: 4rem;
+      }
+
+      h6 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  article {
+    margin: 5% 20%;
+
+    .authenticate-button {
+      .submit-button {
+        font-size: x-large;
+      }
+    }
+
+    input {
+      @include margin-top-and-bottom(2%);
+    }
+
+    button {
+      @include margin-top-and-bottom(2%);
+    }
+
+    header {
+      h1 {
+        font-size: 4rem;
+      }
+
+      h6 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  article {
+    margin: 5% 30%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: $content-color-dark;
+    .authenticate-button {
+      .submit-button {
+        background-color: $primary-dark;
+      }
+    }
+    h6 {
+      a {
+        color: $secondary-dark;
+      }
+    }
+  }
+}

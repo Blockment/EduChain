@@ -1,0 +1,459 @@
+@import "colors.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "B Mitra", sans-serif;
+}
+
+body > header {
+  position: -webkit-sticky;
+  position: sticky;
+  opacity: 95%;
+  top: 0;
+  background-color: $primary;
+}
+
+#main-selected-tab, #selected-tab {
+  color: $secondary;
+
+  &:hover {
+    color: $content-color;
+  }
+}
+
+.more-buttons {
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style: none;
+
+    li {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-top: 1rem;
+      transition: all 0.35s;
+      padding: 0.85rem;
+      border-radius: 999rem;
+
+      a {
+        text-decoration: none;
+        color: $nav-color;
+        font-size: medium;
+      }
+    }
+
+    li:hover {
+      color: $content-color;
+      background-color: $secondary;
+    }
+  }
+}
+
+.hidden {
+  .hidden-text {
+    color: $nav-color;
+
+    .down-arrow {
+      font-size: 0.65em;
+    }
+  }
+
+  ul {
+    display: inline-block;
+    position: absolute;
+  }
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: $text-color;
+  background-color: $primary;
+  word-wrap: normal;
+
+  > header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    width: 20%;
+    margin-left: 1.5rem;
+    content:url("../../images/musix-light.png");
+  }
+
+  h1 {
+    color: $header-color;
+    font-size: x-large;
+  }
+}
+
+ul {
+  .nav-link-item {
+    display: none;
+  }
+
+  #hidden {
+    display: block;
+
+    ul {
+      display: none;
+    }
+  }
+
+  #hidden:hover {
+    ul {
+      display: block;
+    }
+  }
+}
+
+main {
+  z-index: 1;
+}
+
+header {
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+
+  a {
+    text-decoration: none;
+  }
+
+  .site-title {
+    color: $title-color;
+    font-size: xx-large;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+
+    li {
+      list-style: none;
+      transition: all 0.35s;
+      padding: 0.85rem;
+      border-radius: 999rem;
+      font-size: large;
+      margin-left: 1rem;
+      margin-right: 1rem;
+
+      &.primary-button {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background-color: $secondary;
+
+        a {
+          padding: 4%;
+        }
+
+        & > a:hover {
+          opacity: 60%;
+        }
+      }
+
+      a {
+        color: $nav-color;
+        text-decoration: none;
+      }
+    }
+
+    li:hover {
+      color: $content-color;
+      background-color: $secondary;
+    }
+  }
+}
+
+
+button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "B Mitra", sans-serif;
+  transition: all 0.5s;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 1%;
+  background-color: black;
+  opacity: 50%;
+  color: $footer-color;
+  font-size: medium;
+}
+
+.login-link {
+  margin-right: 0;
+}
+
+@media (min-width: 840px) {
+  .primary-button {
+    display: flex;
+  }
+
+  .more-buttons {
+    display: none;
+  }
+
+  ul {
+    .nav-link-item {
+      display: block;
+    }
+
+    #hidden {
+      display: none;
+
+      ul {
+        display: none;
+      }
+    }
+
+    #hidden:hover {
+      ul {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body > header {
+    background-color: $primary-dark;
+  }
+
+  #main-selected-tab, #selected-tab {
+    color: $secondary-dark;
+
+    &:hover {
+      color: $content-color-dark;
+    }
+  }
+
+  .more-buttons {
+    ul {
+      li {
+        a {
+          color: $nav-color-dark;
+        }
+      }
+      li:hover {
+        color: $content-color;
+        background-color: $secondary-dark;
+      }
+    }
+  }
+  .hidden {
+    .hidden-text {
+      color: $nav-color-dark;
+    }
+  }
+  body {
+    color: $text-color-dark;
+    background-color: $primary-dark;
+  }
+  .logo {
+    img {
+      content:url("../../images/musix-dark.png");
+    }
+    h1 {
+      color: $header-color-dark;
+    }
+  }
+  header {
+
+    .site-title {
+      color: $text-color-dark;
+    }
+
+    ul {
+      li {
+        &.primary-button {
+          background-color: $secondary-dark;
+        }
+
+        a {
+          color: $nav-color-dark;
+        }
+      }
+
+      li:hover {
+        color: $content-color;
+        background-color: $secondary-dark;
+      }
+    }
+  }
+  footer {
+    color: $footer-color-dark;
+  }
+}
+
+// preloader:
+
+body {
+  text-align: center;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  top: 50%;
+  animation: loader 2s infinite ease;
+  margin-top: 5%;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+// toggle:
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+  left: 2%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $primary-dark;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: $primary;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $primary;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+.slider.round {
+  border-radius: 23px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
