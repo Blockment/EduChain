@@ -51,7 +51,7 @@ async function addGradeForAssignment(item) {
         alert("لطفا عدد را از ۰ تا حداکثر نمره که " + item.max_score + " است، وارد نمایید");
         return;
     }
-    let response = await fetch('https://ROOT/dassess/assessment/create/', {
+    let response = await fetch('http://193.176.240.206:8000/dassess/assessment/create/', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -177,7 +177,7 @@ function renderList(items, predicate = "") {
 }
 
 async function loadAllItems() {
-    let response = await fetch('http://ROOT/dassess/assignment/');
+    let response = await fetch('http://193.176.240.206:8000/dassess/assignment/');
     if (response.ok) {
         items = await response.json();
         renderList(items, searchBox.value);

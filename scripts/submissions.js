@@ -141,7 +141,7 @@ function renderList(items, predicate = "") {
 }
 
 async function loadAllItems() {
-    let response = await fetch('http://ROOT/dassess/submission/');
+    let response = await fetch('http://193.176.240.206:8000/dassess/submission/');
     if (response.ok) {
         items = await response.json();
         renderList(items, searchBox.value);
