@@ -15,7 +15,7 @@ function getItemById(id) {
 function renderFirstIcon(item) {
     let center = document.createElement("center");
     let shareI = document.createElement("i");
-    shareI.setAttribute("class", "fa fa-upload");
+    shareI.setAttribute("class", "fa fa-download");
     shareI.setAttribute("aria-hidden", "true");
     shareI.style.textAlign = "center";
     center.style.textAlign = "center";
@@ -40,7 +40,7 @@ function renderFirstButton(item) {
     button.style.height = "4rem";
     button.style.width = "4rem";
     button.appendChild(renderFirstIcon(item));
-    button.onclick = () => {};
+    button.onclick = () => { window.location = item.file_address; };
     return button;
 }
 
@@ -63,9 +63,9 @@ function renderControls() {
 function renderItemControls(item) {
     let span = renderControls();
     let button = renderFirstButton(item);
-    let button2 = renderSecondButton(item);
+    // let button2 = renderSecondButton(item);
     span.appendChild(button);
-    span.appendChild(button2);
+    // span.appendChild(button2);
     return span;
 }
 
@@ -80,14 +80,14 @@ function renderTopLink(span, item) {
 function renderFirstText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "first-text");
-    span.innerHTML = "سلام";
+    span.innerHTML = "تکلیف " + item.assignment_id;
     return span;
 }
 
 function renderSecondText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "second-text");
-    span.innerHTML = "سلام";
+    span.innerHTML = item.date;
     return span;
 }
 
@@ -145,7 +145,7 @@ function renderList(items, predicate = "") {
 }
 
 async function loadAllItems() {
-    let response = await fetch('URL______');
+    let response = await fetch('http://ROOT/dassess/submission/');
     if (response.ok) {
         items = await response.json();
         renderList(items, searchBox.value);
@@ -157,5 +157,5 @@ async function loadAllItems() {
 let searchBox = document.getElementById("search-input");
 if (searchBox != null) searchBox.oninput = () => renderList(items, searchBox.value);
 
-// loadAllItems();
-renderList(items, searchBox.value);
+loadAllItems();
+// renderList(items, searchBox.value);
