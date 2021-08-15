@@ -40,9 +40,9 @@ function renderFirstButton(item) {
     return button;
 }
 
-function addGradeForAssignment(item) {
+async function addGradeForAssignment(item) {
     let grade = parseInt(prompt("لطفا نمره‌ای که به این تمرین می‌دهید را وارد کنید. حداکثر نمره‌ی ممکن برای این تمرین، "
-    + item.max_score + " است."));
+        + item.max_score + " است."));
     if (grade == null) {
         alert("لطفا یک عدد معتبر وارد نمایید");
         return;
@@ -51,7 +51,19 @@ function addGradeForAssignment(item) {
         alert("لطفا عدد را از ۰ تا حداکثر نمره که " + item.max_score + " است، وارد نمایید");
         return;
     }
-
+    let response = await fetch('https://ROOT/dassess/assessment/create/', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({assignment_id: item.id, score: grade})
+    });
+    if (response.ok) {
+        alert("نمره با موفقیت ثبت شد");
+    } else {
+        alert("در ثبت نمره، خطایی رخ داد؛ لطفا مجددا تلاش نمایید");
+    }
 }
 
 function renderSecondButton(item) {
