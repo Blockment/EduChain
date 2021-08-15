@@ -59,9 +59,9 @@ function renderControls() {
 function renderItemControls(item) {
     let span = renderControls();
     let button = renderFirstButton(item);
-    // let button2 = renderSecondButton(item);
+    let button2 = renderSecondButton(item);
     span.appendChild(button);
-    // span.appendChild(button2);
+    span.appendChild(button2);
     return span;
 }
 
@@ -76,11 +76,18 @@ function renderTopLink(span, item) {
 function renderFirstText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "first-text");
-    span.innerHTML = "تکلیف " + item.assignment_id;
+    span.innerHTML = item.name;
     return span;
 }
 
 function renderSecondText(item) {
+    let span = document.createElement("span");
+    span.setAttribute("class", "second-text");
+    span.innerHTML = item.description;
+    return span;
+}
+
+function renderThirdText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "second-text");
     span.innerHTML = item.date;
@@ -103,6 +110,7 @@ function renderTopTexts(item) {
     let span = renderTopTextsSpan();
     span.appendChild(renderFirstText(item));
     span.appendChild(renderSecondText(item));
+    span.appendChild(renderThirdText(item));
     return span;
 }
 
