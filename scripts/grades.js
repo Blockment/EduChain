@@ -83,7 +83,7 @@ function renderFirstText(item) {
 function renderSecondText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "second-text");
-    span.innerHTML = item.date;
+    span.innerHTML = item.score;
     return span;
 }
 
@@ -118,7 +118,7 @@ function renderListItem(item) {
     li.setAttribute("class", "mdc-elevation--z1");
     let span = renderMainListItemSpan(item);
     li.appendChild(span);
-    li.appendChild(renderItemControls(item));
+    // li.appendChild(renderItemControls(item));
     return li;
 }
 
@@ -141,7 +141,7 @@ function renderList(items, predicate = "") {
 }
 
 async function loadAllItems() {
-    let response = await fetch('http://ROOT/dassess/submission/');
+    let response = await fetch('http://ROOT/dassess/assessment/');
     if (response.ok) {
         items = await response.json();
         renderList(items, searchBox.value);

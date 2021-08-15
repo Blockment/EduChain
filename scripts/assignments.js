@@ -135,13 +135,13 @@ function renderList(items, predicate = "") {
             .forEach((item) => renderItem(ul, item));
     } else {
         selectedItems
-            .filter((item) => item.name.toLowerCase().includes(predicate.toLowerCase()))
+            .filter((item) => item.name.toLowerCase().includes(predicate.toLowerCase()) || item.description.toLowerCase().includes(predicate.toLowerCase()))
             .forEach((item) => renderItem(ul, item));
     }
 }
 
 async function loadAllItems() {
-    let response = await fetch('http://ROOT/dassess/submission/');
+    let response = await fetch('http://ROOT/dassess/assignment/');
     if (response.ok) {
         items = await response.json();
         renderList(items, searchBox.value);
