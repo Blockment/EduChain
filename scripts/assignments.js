@@ -22,7 +22,7 @@ function renderFirstIcon(item) {
 function renderSecondIcon(item) {
     let center = document.createElement("center");
     let shareI = document.createElement("i");
-    shareI.setAttribute("class", "fa fa-upload");
+    shareI.setAttribute("class", "fa fa-plus");
     shareI.setAttribute("aria-hidden", "true");
     shareI.style.textAlign = "center";
     center.style.textAlign = "center";
@@ -40,13 +40,29 @@ function renderFirstButton(item) {
     return button;
 }
 
+function addGradeForAssignment(item) {
+    let grade = parseInt(prompt("لطفا نمره‌ای که به این تمرین می‌دهید را وارد کنید. حداکثر نمره‌ی ممکن برای این تمرین، "
+    + item.max_score + " است."));
+    if (grade == null) {
+        alert("لطفا یک عدد معتبر وارد نمایید");
+        return;
+    }
+    if (grade < 0 || grade > item.max_score) {
+        alert("لطفا عدد را از ۰ تا حداکثر نمره که " + item.max_score + " است، وارد نمایید");
+        return;
+    }
+
+}
+
 function renderSecondButton(item) {
     let button = document.createElement("button");
     button.setAttribute("class", "first-button-on-cell");
     button.style.height = "4rem";
     button.style.width = "4rem";
     button.appendChild(renderSecondIcon(item));
-    button.onclick = () => {};
+    button.onclick = () => {
+        addGradeForAssignment(item);
+    };
     return button;
 }
 
