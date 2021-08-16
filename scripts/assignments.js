@@ -177,7 +177,15 @@ function renderList(items, predicate = "") {
 }
 
 async function loadAllItems() {
-    let response = await fetch('http://193.176.240.206:8000/dassess/assignment/');
+    let response = await fetch('http://193.176.240.206:8000/dassess/assignment/', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token")
+        },
+    });
+    // let response = await fetch('http://193.176.240.206:8000/dassess/assignment/');
     if (response.ok) {
         items = await response.json();
         renderList(items, searchBox.value);
