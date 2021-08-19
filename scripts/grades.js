@@ -141,21 +141,24 @@ function renderList(items, predicate = "") {
 }
 
 async function loadAllItems() {
-    let response = await fetch('http://193.176.240.206:8000/dassess/assessment/', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem("token")
-        },
-    });
-    // let response = await fetch('http://193.176.240.206:8000/dassess/assessment/');
-    if (response.ok) {
-        items = await response.json();
-        renderList(items, searchBox.value);
-    } else {
-        console.log("Error!");
-    }
+    items = JSON.parse(localStorage.getItem("grades"));
+    renderList(items, searchBox.value);
+
+    // let response = await fetch('http://193.176.240.206:8000/dassess/assessment/', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'Authorization': 'Bearer ' + localStorage.getItem("token")
+    //     },
+    // });
+    // // let response = await fetch('http://193.176.240.206:8000/dassess/assessment/');
+    // if (response.ok) {
+    //     items = await response.json();
+    //     renderList(items, searchBox.value);
+    // } else {
+    //     console.log("Error!");
+    // }
 }
 
 let searchBox = document.getElementById("search-input");
