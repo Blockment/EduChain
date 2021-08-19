@@ -89,9 +89,9 @@ function renderControls() {
 function renderItemControls(item) {
     let span = renderControls();
     let button = renderFirstButton(item);
-    let button2 = renderSecondButton(item);
+    // let button2 = renderSecondButton(item);
     span.appendChild(button);
-    span.appendChild(button2);
+    // span.appendChild(button2);
     return span;
 }
 
@@ -107,7 +107,7 @@ function renderTopLink(span, item) {
 function renderFirstText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "first-text");
-    span.innerHTML = item.name;
+    span.innerHTML = item.id + " - " + item.name;
     return span;
 }
 

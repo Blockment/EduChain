@@ -22,7 +22,7 @@ function renderFirstIcon(item) {
 function renderSecondIcon(item) {
     let center = document.createElement("center");
     let shareI = document.createElement("i");
-    shareI.setAttribute("class", "fa fa-upload");
+    shareI.setAttribute("class", "fa fa-plus");
     shareI.setAttribute("aria-hidden", "true");
     shareI.style.textAlign = "center";
     center.style.textAlign = "center";
@@ -40,13 +40,50 @@ function renderFirstButton(item) {
     return button;
 }
 
+async function addGradeForAssignment(item) {
+    let grade = prompt("لطفا نمره‌ای که به این تمرین می‌دهید را وارد کنید.");
+    // if (grade == null) {
+    //     alert("لطفا یک عدد معتبر وارد نمایید");
+    //     return;
+    // }
+    // if (grade < 0 || grade > item.max_score) {
+    //     alert("لطفا عدد را از ۰ تا حداکثر نمره که " + item.max_score + " است، وارد نمایید");
+    //     return;
+    // }
+    let grades = JSON.parse(localStorage.getItem("grades"));
+    grades.push(
+        {
+            id: grades.length + 1,
+            submission_id: item.id,
+            date: "2021-08-19",
+            score: grade
+        }
+    )
+    localStorage.setItem("grades", JSON.stringify(grades));
+    // let response = await fetch('http://193.176.240.206:8000/dassess/assessment/create/', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({assignment_id: item.id, score: grade})
+    // });
+    // if (response.ok) {
+    //     alert("نمره با موفقیت ثبت شد");
+    // } else {
+    //     alert("در ثبت نمره، خطایی رخ داد؛ لطفا مجددا تلاش نمایید");
+    // }
+}
+
 function renderSecondButton(item) {
     let button = document.createElement("button");
     button.setAttribute("class", "first-button-on-cell");
     button.style.height = "4rem";
     button.style.width = "4rem";
     button.appendChild(renderSecondIcon(item));
-    button.onclick = () => {};
+    button.onclick = () => {
+        addGradeForAssignment(item);
+    };
     return button;
 }
 
@@ -59,9 +96,9 @@ function renderControls() {
 function renderItemControls(item) {
     let span = renderControls();
     let button = renderFirstButton(item);
-    // let button2 = renderSecondButton(item);
+    let button2 = renderSecondButton(item);
     span.appendChild(button);
-    // span.appendChild(button2);
+    span.appendChild(button2);
     return span;
 }
 
@@ -76,7 +113,7 @@ function renderTopLink(span, item) {
 function renderFirstText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "first-text");
-    span.innerHTML = "تکلیف " + item.assignment_id;
+    span.innerHTML = "ارسال " + item.id + " برای تکلیف " + item.assignment_id;
     return span;
 }
 
@@ -142,7 +179,7 @@ function renderList(items, predicate = "") {
 
 async function loadAllItems() {
     items = JSON.parse(localStorage.getItem("submissions"));
-    renderList(items, searchBox.value);
+    renderList(items, "");
 
     // let response = await fetch('http://193.176.240.206:8000/dassess/submission/', {
     //     method: 'GET',

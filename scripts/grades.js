@@ -76,14 +76,14 @@ function renderTopLink(span, item) {
 function renderFirstText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "first-text");
-    span.innerHTML = "تکلیف " + item.assignment_id;
+    span.innerHTML = "ارسال " + item.submission_id;
     return span;
 }
 
 function renderSecondText(item) {
     let span = document.createElement("span");
     span.setAttribute("class", "second-text");
-    span.innerHTML = item.score;
+    span.innerHTML = "نمره: " + item.score;
     return span;
 }
 
@@ -142,7 +142,7 @@ function renderList(items, predicate = "") {
 
 async function loadAllItems() {
     items = JSON.parse(localStorage.getItem("grades"));
-    renderList(items, searchBox.value);
+    renderList(items, "");
 
     // let response = await fetch('http://193.176.240.206:8000/dassess/assessment/', {
     //     method: 'GET',

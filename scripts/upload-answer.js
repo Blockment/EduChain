@@ -1,22 +1,17 @@
 // File Upload
 
 function createNewEntry() {
-    let nameInput = document.getElementById("name-input");
-    let descriptionInput = document.getElementById("description-input");
-    let dateInput = document.getElementById("date-input");
-    let maxScoreInput = document.getElementById("max-score-input");
+    let assignmentIDInput = document.getElementById("assignment-id-input");
 
-    let assignments = JSON.parse(localStorage.getItem("assignments"));
-    assignments.push({
-        id: assignments.length + 1,
-        name: nameInput.value,
-        description: descriptionInput.value,
-        date: dateInput.value,
-        due_date: dateInput.value,
-        max_score: maxScoreInput.value,
+    let submissions = JSON.parse(localStorage.getItem("submissions"));
+    submissions.push({
+        id: submissions.length + 1,
+        assignment_id: assignmentIDInput.value,
+        date: "2021-08-19",
+        file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
     });
-    localStorage.setItem("assignments", JSON.stringify(assignments));
-    window.location = "assignments.html";
+    localStorage.setItem("submissions", JSON.stringify(submissions));
+    window.location = "submissions.html";
 }
 
 document.getElementById("submit-button").onclick = () => createNewEntry();

@@ -35,14 +35,21 @@ async function startLoggingInTasks() {
                 description: "فلوچارت و مبنا",
                 file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
                 max_score: 20
-            }
+            },
+            {
+                id: 2,
+                date: "2021-05-05",
+                due_date: "2021-10-05",
+                name: "تمرین دوم",
+                description: "شرط، حلقه و آرایه",
+                file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
+                max_score: 25
+            },
         ]
     ));
-    localStorage.setItem("grades", JSON.stringify(
-        {}
-    ));
+    localStorage.setItem("grades", JSON.stringify([]));
     localStorage.setItem("submissions", JSON.stringify(
-        {}
+        []
     ));
     if (destinationLocationAfterLogin !== "") document.location = destinationLocationAfterLogin;
 }
