@@ -21,36 +21,36 @@ function saveLoginData(json) {
 
 let destinationLocationAfterLogin = "assignments.html";
 
-async function startLoggingInTasks() {
-    // let json = await response.json();
-    // saveLoginData(json);
+async function startLoggingInTasks(response) {
+    let json = await response.json();
+    saveLoginData(json);
 
-    localStorage.setItem("assignments", JSON.stringify(
-        [
-            {
-                id: 1,
-                date: "2021-04-05",
-                due_date: "2021-09-05",
-                name: "تمرین نخست",
-                description: "فلوچارت و مبنا",
-                file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
-                max_score: 20
-            },
-            {
-                id: 2,
-                date: "2021-05-05",
-                due_date: "2021-10-05",
-                name: "تمرین دوم",
-                description: "شرط، حلقه و آرایه",
-                file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
-                max_score: 25
-            },
-        ]
-    ));
-    localStorage.setItem("grades", JSON.stringify([]));
-    localStorage.setItem("submissions", JSON.stringify(
-        []
-    ));
+    // localStorage.setItem("assignments", JSON.stringify(
+    //     [
+    //         {
+    //             id: 1,
+    //             date: "2021-04-05",
+    //             due_date: "2021-09-05",
+    //             name: "تمرین نخست",
+    //             description: "فلوچارت و مبنا",
+    //             file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
+    //             max_score: 20
+    //         },
+    //         {
+    //             id: 2,
+    //             date: "2021-05-05",
+    //             due_date: "2021-10-05",
+    //             name: "تمرین دوم",
+    //             description: "شرط، حلقه و آرایه",
+    //             file_address: "file:///Users/parsa/Desktop/CodeNameh.pdf",
+    //             max_score: 25
+    //         },
+    //     ]
+    // ));
+    // localStorage.setItem("grades", JSON.stringify([]));
+    // localStorage.setItem("submissions", JSON.stringify(
+    //     []
+    // ));
     if (destinationLocationAfterLogin !== "") document.location = destinationLocationAfterLogin;
 }
 
@@ -59,10 +59,10 @@ function showErrorLogin() {
 }
 
 async function login() {
-    await startLoggingInTasks();
-    // let response = await getLoginResponse();
-    // if (response.ok) await startLoggingInTasks(response);
-    // else showErrorLogin();
+    // await startLoggingInTasks();
+    let response = await getLoginResponse();
+    if (response.ok) await startLoggingInTasks(response);
+    else showErrorLogin();
 }
 
 if (submitButton != null) submitButton.onclick = () => login();
