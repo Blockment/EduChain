@@ -1,0 +1,10 @@
+version: "3.6"
+   
+services:
+  front:
+    image: nginx:latest
+    volumes:
+      - .:/usr/share/nginx/html/
+    ports:
+      - "8080:80"
+    restart: always
