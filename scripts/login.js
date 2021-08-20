@@ -3,7 +3,7 @@ let emailLoginInput = document.getElementById("email-input");
 let passwordLoginInput = document.getElementById("password-input");
 
 async function getLoginResponse() {
-    let response = await fetch('http://193.176.240.206:8000/auth/login/', {
+    let response = await fetch('http://localhost:8000/auth/login/', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
