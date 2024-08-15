@@ -33,8 +33,10 @@ EduChain is a web-based educational management system that facilitates assignmen
 ## Setup and Running the Project
 1. Ensure you have a modern web browser installed.
 2. Clone the repository to your local machine:
-    - git clone **https://github.com/Blockment/EduChain**
-3. Open the HTML files in your browser to interact with the application.
+   ```bash
+   git clone **https://github.com/Blockment/EduChain**
+   ```
+4. Open the HTML files in your browser to interact with the application.
 
 ## Maintainers
 
