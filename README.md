@@ -1,5 +1,11 @@
 # EduChain
 
+<div align="center">
+  <img 
+    style="width: 700px;"
+    src="https://github.com/Blockment/EduChain/blob/master/Preview.jpg">
+</div>
+
 ## Overview
 EduChain is a web-based educational management system that facilitates assignment submissions, grading, and peer review processes using a front-end interface. The system supports uploading assignments, managing grades, viewing peer submissions, and uploading responses, all within a structured HTML/CSS/JavaScript framework. This setup aims to streamline educational tasks and foster a collaborative learning environment.
 
@@ -33,4 +39,4 @@ EduChain is a web-based educational management system that facilitates assignmen
 ## Maintainers
 
 - [Soroush Jahanzad](https://github.com/SJahanzad)
-- [Parsa Neshaei](https://github.com/spneshaei)
+- [Seyed Parsa Neshaei](https://github.com/spneshaei)
